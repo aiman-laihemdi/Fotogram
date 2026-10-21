@@ -6,7 +6,7 @@
     <title>Punto Costoms</title>
     <link rel="shortcut icon" href="./assets/icons/p_u_n_t_o-removebg-preview.png" type="image/x-icon">
     <script defer src="./script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body onload="init()">
 
@@ -20,9 +20,17 @@
             <!-- <img class="abahrt-look" arial-haspopup="dialog" onclick="openDialogRef()" src="./assets/img/codice-punto-tuning-01.jpg" alt=""> -->
         </div>
 '
-        <dialog >
-            <button>X</button>
-        </dialog>
+        
+    <dialog id="imageDialog">
+        <button onclick="closeDialogRef()">✕</button>
+
+        <button onclick="previousImageRef()">❮</button>
+
+        <img id="dialogImg" src="" alt="Fiat Punto Evo Tuning">
+
+        <button onclick="nextImageRef()">❯</button>
+    </dialog>
+
 
     </main>
     

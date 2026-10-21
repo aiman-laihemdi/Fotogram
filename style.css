@@ -17,7 +17,7 @@ header{
     width: 80px;
 }
 
-.abahrt-look{
+.punto-look{
     width: 150px;
     height: 150px;
     border-radius: 16px;
@@ -43,10 +43,6 @@ main{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.display-none {
-    display: none;
 }
 
 button {

@@ -1,3 +1,4 @@
+
 const images = [
     "1.jpg",
     "2.jpg",
@@ -14,36 +15,65 @@ const images = [
 ];
 
 const cardWrapperRef = document.getElementById("cardWrapper");
+const dialogRef = document.getElementById("imageDialog");
+const dialogImgRef = document.getElementById("dialogImg");
+
+let currentImageIndex = 0;
 
 function init() {
     render();
 }
 
 function render() {
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < images.length; i++) {
         cardWrapperRef.innerHTML += getHTMLForButton(i);
     }
 }
 
-function toggleClass(number) {
-    const cardPRef = document.getElementById(`card${number}P`);
-    const cardImgRef = document.getElementById(`card${number}Img`);
-    cardPRef.classList.toggle("display-none");
-    cardImgRef.classList.toggle("display-none");
+function openDialogRef(i) {
+    currentImageIndex = i;
+
+    dialogImgRef.src = `./assets/img/${images[i]}`;
+
+    dialogRef.showModal();
+}
+
+function closeDialogRef() {
+    dialogRef.close();
+}
+
+function previousImageRef() {
+    currentImageIndex--;
+
+    if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+    }
+
+    dialogImgRef.src =
+        `./assets/img/${images[currentImageIndex]}`;
+}
+
+function nextImageRef() {
+    currentImageIndex++;
+
+    if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+    }
+
+    dialogImgRef.src =
+        `./assets/img/${images[currentImageIndex]}`;
 }
 
 function getHTMLForButton(i) {
     return `
-        <button onclick="toggleClass(${i})">
-                <div class="card">
-                    <p id="card${i}P" class="card-p">${i}</p>
-                    <img
-                        id="card${i}Img"
-                        src="./assets/img/${i}.jpg"
-                        alt=""
-                        class="card-img display-none"
-                    />
-                </div>
-            </button>
-            `;
+        <button onclick="openDialogRef(${i})">
+            <div class="card">
+                <img
+                    src="./assets/img/${images[i]}"
+                    alt="Fiat Punto Evo Tuning ${i + 1}"
+                    class="card-img punto-look"
+                >
+            </div>
+        </button>
+    `;
 }
