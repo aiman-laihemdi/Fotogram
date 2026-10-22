@@ -4,33 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punto Costoms</title>
-    <link rel="shortcut icon" href="./assets/icons/p_u_n_t_o-removebg-preview.png" type="image/x-icon">
-    <script defer src="./script.js"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./assets/icons/punto-logo.png" type="image/x-icon">
+    <script defer src="../script.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./tester.css">
+    <link rel="stylesheet" href="../fonts.css">
 </head>
 <body onload="init()">
 
     <header>
-        <img class="logo-header" src="./assets/icons/p_u_n_t_o-removebg-preview.png" alt="">
+        <img class="logo-header" src="./assets/icons/punto.png" alt="Firmen Logo Punto">
     </header>
     
     <main>
-        <h1>Your personal photo album</h1>
-        <div id="cardWrapper" class="card-wrapper">
-            <!-- <img class="abahrt-look" arial-haspopup="dialog" onclick="openDialogRef()" src="./assets/img/codice-punto-tuning-01.jpg" alt=""> -->
-        </div>
-'
+        <h1>Punto Customs – Italian Style. Personal Touch.</h1>
+        <div id="cardWrapper" class="card-wrapper"></div>
         
     <dialog id="imageDialog">
-        <button onclick="closeDialogRef()">✕</button>
-
-        <button onclick="previousImageRef()">❮</button>
-
-        <img id="dialogImg" src="" alt="Fiat Punto Evo Tuning">
-
-        <button onclick="nextImageRef()">❯</button>
+        <button onclick="" id="btnSwipeLeft"><i class="fa-solid fa-circle-arrow-left" style="color: rgb(255, 0, 0);"></i></i></button>
+        <button onclick="" id="btnSwipeRight"><i class="fa-solid fa-circle-arrow-right" style="color: rgb(255, 0, 0);"></i></button>
+        <button onclick="" id="btnClose"><i class="fa-solid fa-x" style="color: rgb(255, 0, 0);"></i></button>
     </dialog>
-
 
     </main>
     
