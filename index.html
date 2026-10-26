@@ -1,35 +1,82 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Punto Costoms</title>
+
+    <title>Punto Customs</title>
+
     <link rel="shortcut icon" href="./assets/icons/punto-logo.png" type="image/x-icon">
-    <script defer src="../script.js"></script>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./tester.css">
     <link rel="stylesheet" href="../fonts.css">
+
+    <script defer src="../script.js"></script>
 </head>
+
 <body onload="init()">
 
     <header>
-        <img class="logo-header" src="./assets/icons/punto.png" alt="Firmen Logo Punto">
+        <img
+            class="logo-header"
+            src="./assets/icons/la-costom-removebg-preview.png"
+            alt="Punto Customs Logo"
+        >
     </header>
-    
+
     <main>
-        <h1>Punto Customs – Italian Style. Personal Touch.</h1>
-        <div id="cardWrapper" class="card-wrapper"></div>
-        
-    <dialog id="imageDialog">
-        <button onclick="" id="btnSwipeLeft"><i class="fa-solid fa-circle-arrow-left" style="color: rgb(255, 0, 0);"></i></i></button>
-        <button onclick="" id="btnSwipeRight"><i class="fa-solid fa-circle-arrow-right" style="color: rgb(255, 0, 0);"></i></button>
-        <button onclick="" id="btnClose"><i class="fa-solid fa-x" style="color: rgb(255, 0, 0);"></i></button>
-    </dialog>
+        <section class="content">
+            <article class="headline">
+                <h1>Punto Customs Italian Style. Personal Touch.</h1>
 
+                <div id="cardWrapper" class="card-wrapper"></div>
+            </article>
+
+            <article class="dialog-container">
+                <dialog id="dialogRef" class="dialog">
+                <div class="dialogHeader">
+                    <span id="nameImg"></span>
+                    <span id="nameImg" class="btnClose">
+                        <button
+                            type="button"
+                            id="btnClose"
+                            onclick="closeDialogRef()"
+                            aria-label="Dialog schließen"
+                        >✕</button>
+                    </span>
+                </div>
+                    <span class="dialog-img">
+                        <img
+                            id="dialogImg"
+                            src=""
+                            alt="Fiat Punto Evo Tuning"
+                        >
+                    </span>
+
+                    <span class="btn-dialog">
+                        <button
+                            type="button"
+                            id="swipeLeft"
+                            onclick="previousImage()"
+                            aria-label="Vorheriges Bild"
+                        >❮</button>
+
+                        <button
+                            type="button"
+                            id="swipeRight"
+                            onclick="nextImage()"
+                            aria-label="Nächstes Bild"
+                        >❯</button>
+                    </span>
+                </dialog>
+            </article>
+        </section>
     </main>
-    
-    <footer>
 
+    <footer>
+        <img src="../assets/icons/LA_LOGO.png" alt="Logo vom Owner">
     </footer>
+
 </body>
 </html>
