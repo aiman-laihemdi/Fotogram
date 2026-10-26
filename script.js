@@ -1,18 +1,20 @@
 
+
 let carImages = [
+    "Alufelgen.jpg",
     "Sportfahrwerk.jpg",
-    "Sportfahrwerk.jpg",
-    "Heckdiffusor.jpg",
-    "LED-Scheinwerfer.jpg",
-    "Sportlicher Kühlergrill.jpg",
-    "Sportlicher Innenraum.jpg",
-    "Abarth-Bodykit.jpg",
-    "Seitenschweller.jpg",
     "Frontstoßstange.jpg",
-    "Sportauspuff.jpg",
+    "Seitenschweller.jpg",
+    "Heckdiffusor.jpg",
     "Heckspoiler.jpg",
-    "Individuelle Lackierung.jpg"
+    "Sportlicher Kühlergrill.jpg",
+    "LED-Scheinwerfer.jpg",
+    "Sportauspuff.jpg",
+    "Individuelle Lackierung.jpg",
+    "Sportlicher Innenraum.jpg",
+    "Abarth-Bodykit.jpg"
 ];
+
 
 const cardWrapperRef = document.getElementById("cardWrapper");
 const dialogRef = document.getElementById("dialogRef");
@@ -65,7 +67,8 @@ function openDialogRef(i) {
 
     updateDialogImage();
 
-    dialo
+    dialogRef.showModal();
+}
 
 
 function closeDialogRef() {
