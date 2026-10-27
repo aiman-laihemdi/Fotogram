@@ -1,5 +1,4 @@
 
-
 let carImages = [
     "Alufelgen.jpg",
     "Sportfahrwerk.jpg",
@@ -15,7 +14,6 @@ let carImages = [
     "Abarth-Bodykit.jpg"
 ];
 
-
 const cardWrapperRef = document.getElementById("cardWrapper");
 const dialogRef = document.getElementById("dialogRef");
 const dialogImgRef = document.getElementById("dialogImg");
@@ -24,46 +22,65 @@ const nameImgRef = document.getElementById("nameImg");
 let currentImageIndex = 0;
 
 
+// Initialisiert die Bildergalerie
 function init() {
     render();
 }
 
 
+// Rendert die Bilder
 function render() {
     cardWrapperRef.innerHTML = getNotesHtml();
 }
 
 
+// // Erstellt das HTML für die Bilder
+// function getNotesHtml() {
+//     let content = "";
+
+//     for (let i = 0; i < carImages.length; i++) {
+//         content += `
+//             <img
+//                 class="puntoEvo"
+//                 onclick="openDialogRef(${i})"
+//                 src="./assets/img/${carImages[i]}"
+//                 alt="Fiat Punto Evo Tuning: ${carImages[i].replace(".jpg", "")}"
+//             >
+//         `;
+//     }
+
+//     return content;
+// }
+
 function getNotesHtml() {
     let content = "";
 
     for (let i = 0; i < carImages.length; i++) {
+        const imageName = carImages[i].replace(".jpg", "");
+
         content += `
-            <img
-                class="puntoEvo"
+            <button
+                type="button"
+                class="gallery-button"
                 onclick="openDialogRef(${i})"
-                src="./assets/img/${carImages[i]}"
-                alt="Fiat Punto Evo Tuning Bild ${i + 1}"
+                aria-label="Bild öffnen: ${imageName}"
             >
+                <img
+                    class="puntoEvo"
+                    src="../assets/img/${carImages[i]}"
+                    alt="${imageName}"
+                >
+            </button>
         `;
     }
-
 
     return content;
 }
 
 
-// function openDialogRef(i) {
-//     currentImageIndex = i;
-
-//     dialogImgRef.src = `./assets/img/${carImages[currentImageIndex]}`;
-//     dialogImgRef.alt = `Fiat Punto Evo Tuning Bild ${currentImageIndex + 1}`;
-
-//     dialogRef.showModal();
-// }
-
-function openDialogRef(i) {
-    currentImageIndex = i;
+// Öffnet den Dialog mit dem ausgewählten Bild
+function openDialogRef(index) {
+    currentImageIndex = index;
 
     updateDialogImage();
 
@@ -71,11 +88,13 @@ function openDialogRef(i) {
 }
 
 
+// Schließt den Dialog
 function closeDialogRef() {
     dialogRef.close();
 }
 
 
+// Wechselt zum nächsten Bild
 function nextImage() {
     currentImageIndex++;
 
@@ -87,6 +106,7 @@ function nextImage() {
 }
 
 
+// Wechselt zum vorherigen Bild
 function previousImage() {
     currentImageIndex--;
 
@@ -98,10 +118,12 @@ function previousImage() {
 }
 
 
+// Aktualisiert Bild und Titel
 function updateDialogImage() {
-    dialogImgRef.src = `./assets/img/${carImages[currentImageIndex]}`;
-    dialogImgRef.alt = `Fiat Punto Evo Tuning Bild ${currentImageIndex + 1}`;
+    const imageName = carImages[currentImageIndex].replace(".jpg", "");
 
-    nameImgRef.textContent = carImages[currentImageIndex]
-        .replace(".jpg", "");
+    dialogImgRef.src = `../assets/img/${carImages[currentImageIndex]}`;
+    dialogImgRef.alt = `Fiat Punto Evo Tuning: ${imageName}`;
+
+    nameImgRef.textContent = imageName;
 }
