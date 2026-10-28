@@ -6,18 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Punto Customs</title>
+    <link rel="icon" href="./assets/icons/punto-logo.png" type="image/png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/tester.css">
+    <link rel="stylesheet" href="./css/fonts.css">
 
-    <link
-        rel="icon"
-        href="./assets/icons/punto-logo.png"
-        type="image/png"
-    >
-
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../tester.css">
-    <link rel="stylesheet" href="../fonts.css">
-
-    <script defer src="../script.js"></script>
+    <script defer src="./js/script.js"></script>
 </head>
 
 <body onload="init()">
@@ -25,7 +19,7 @@
     <header>
         <img
             class="logo-header"
-            src="../assets/icons/la-costom-removebg-preview.png"
+            src="./assets/icons/la-costom-removebg-preview.png"
             alt="Punto Customs Logo"
         >
     </header>
@@ -42,10 +36,10 @@
         </section>
     </main>
 
-    <dialog id="dialogRef" class="dialog" aria-labelledby="nameImg">
+    <dialog id="dialogRef" onclick="if (event.target === this) this.close()" class="dialog" aria-labelledby="nameImg">
         <div class="dialogHeader">
 
-            <h4 id="nameImg"></h4>
+            <p id="nameImg"></p>
 
             <button type="button" id="btnClose" class="btnClose" onclick="closeDialogRef()" aria-label="Dialog schließen">✕</button>
         </div>
@@ -56,12 +50,13 @@
 
         <div class="btn-dialog">
             <button type="button" id="swipeLeft" onclick="previousImage()" aria-label="Vorheriges Bild">❮</button>
+            <span id="imageCounter">1 / 12</span>
             <button type="button" id="swipeRight" onclick="nextImage()" aria-label="Nächstes Bild">❯</button>
         </div>
     </dialog>
 
     <footer>
-        <img src="../assets/icons/LA_LOGO.png" alt="LA Logo">
+        <img src="./assets/icons/LA_LOGO.png" alt="LA Logo">
     </footer>
 
 </body>

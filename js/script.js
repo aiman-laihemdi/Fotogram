@@ -19,6 +19,7 @@ const dialogRef = document.getElementById("dialogRef");
 const dialogImgRef = document.getElementById("dialogImg");
 const nameImgRef = document.getElementById("nameImg");
 
+
 let currentImageIndex = 0;
 
 
@@ -33,24 +34,6 @@ function render() {
     cardWrapperRef.innerHTML = getNotesHtml();
 }
 
-
-// // Erstellt das HTML für die Bilder
-// function getNotesHtml() {
-//     let content = "";
-
-//     for (let i = 0; i < carImages.length; i++) {
-//         content += `
-//             <img
-//                 class="puntoEvo"
-//                 onclick="openDialogRef(${i})"
-//                 src="./assets/img/${carImages[i]}"
-//                 alt="Fiat Punto Evo Tuning: ${carImages[i].replace(".jpg", "")}"
-//             >
-//         `;
-//     }
-
-//     return content;
-// }
 
 function getNotesHtml() {
     let content = "";
@@ -67,7 +50,7 @@ function getNotesHtml() {
             >
                 <img
                     class="puntoEvo"
-                    src="../assets/img/${carImages[i]}"
+                    src="./assets/img/${carImages[i]}"
                     alt="${imageName}"
                 >
             </button>
@@ -106,6 +89,13 @@ function nextImage() {
 }
 
 
+const imageCounter = document.querySelector("#imageCounter");
+
+function updateCounter() {
+    imageCounter.textContent = `${currentImageIndex + 1} / ${carImages.length}`;
+}
+
+
 // Wechselt zum vorherigen Bild
 function previousImage() {
     currentImageIndex--;
@@ -122,8 +112,10 @@ function previousImage() {
 function updateDialogImage() {
     const imageName = carImages[currentImageIndex].replace(".jpg", "");
 
-    dialogImgRef.src = `../assets/img/${carImages[currentImageIndex]}`;
+    dialogImgRef.src = `./assets/img/${carImages[currentImageIndex]}`;
     dialogImgRef.alt = `Fiat Punto Evo Tuning: ${imageName}`;
 
     nameImgRef.textContent = imageName;
+
+    updateCounter();
 }
