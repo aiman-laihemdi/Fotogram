@@ -18,6 +18,7 @@ const cardWrapperRef = document.getElementById("cardWrapper");
 const dialogRef = document.getElementById("dialogRef");
 const dialogImgRef = document.getElementById("dialogImg");
 const nameImgRef = document.getElementById("nameImg");
+const imageCounter = document.querySelector("#imageCounter");
 
 
 let currentImageIndex = 0;
@@ -31,30 +32,15 @@ function init() {
 
 // Rendert die Bilder
 function render() {
-    cardWrapperRef.innerHTML = getNotesHtml();
+    cardWrapperRef.innerHTML = generateHtml();
 }
 
 
-function getNotesHtml() {
+function generateHtml() {
     let content = "";
 
     for (let i = 0; i < carImages.length; i++) {
-        const imageName = carImages[i].replace(".jpg", "");
-
-        content += `
-            <button
-                type="button"
-                class="gallery-button"
-                onclick="openDialogRef(${i})"
-                aria-label="Bild öffnen: ${imageName}"
-            >
-                <img
-                    class="puntoEvo"
-                    src="./assets/img/${carImages[i]}"
-                    alt="${imageName}"
-                >
-            </button>
-        `;
+        content += getNotesHtml(i);
     }
 
     return content;
@@ -89,8 +75,6 @@ function nextImage() {
 }
 
 
-const imageCounter = document.querySelector("#imageCounter");
-
 function updateCounter() {
     imageCounter.textContent = `${currentImageIndex + 1} / ${carImages.length}`;
 }
@@ -118,4 +102,24 @@ function updateDialogImage() {
     nameImgRef.textContent = imageName;
 
     updateCounter();
+}
+
+
+function getNotesHtml(i) {
+    const imageName = carImages[i].replace(".jpg", "");
+
+    return `
+        <button
+            type="button"
+            class="gallery-button"
+            onclick="openDialogRef(${i})"
+            aria-label="Bild öffnen: ${imageName}"
+        >
+            <img
+                class="puntoEvo"
+                src="./assets/img/${carImages[i]}"
+                alt="${imageName}"
+            >
+        </button>
+    `;
 }
